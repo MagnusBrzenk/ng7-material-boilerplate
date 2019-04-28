@@ -54,5 +54,6 @@ Host ...
 7. Make sure you have a global install of [angular-cli-ghpages](https://www.npmjs.com/package/angular-cli-ghpages)
 8. Start making commits and then `git push origin master -u`
 9. When you want to push changes to github-pages, simple run `_deploy_github_pages.sh`
+10. Note to self: when you create a boilerplate using `ng new XXX`, the output path will read `dist/project-name` by default, and I've been changing this to just `dist` so thtat the products are put directly into the the `dist` folder.
 
 ... and you're good to develop! If you prefer to fork then, well, it's pretty asy to adapt from these instructions.
