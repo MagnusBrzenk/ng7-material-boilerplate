@@ -1,0 +1,26 @@
+{
+  "editor.formatOnSave": true,
+
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[jsonc]": {
+      "editor.formatOnSave": false,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "tslint.configFile": "tslint.json",
+  "tslint.enable": true,
+
+  "files.associations": {
+    "*.html": "html"
+  }
+
+}
