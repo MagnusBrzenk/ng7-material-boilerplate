@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng7-material-boilerplate';
+
+  //
+
+  xxx(x: any) {
+    console.log(x + '');
+  }
 }
