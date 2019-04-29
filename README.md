@@ -57,3 +57,13 @@ Host ...
 10. Note to self: when you create a boilerplate using `ng new XXX`, the output path will read `dist/project-name` by default, and I've been changing this to just `dist` so thtat the products are put directly into the the `dist` folder.
 
 ... and you're good to develop! If you prefer to fork then, well, it's pretty asy to adapt from these instructions.
+
+## Formatting, TSLint, Etc.
+
+This boilerplate aims to make code formatting consistent across multi developers. There are two things to consider: formatting code as you edit, and formatting code when you make git commits. Ideally, of course, you want your editor to format your code the same way that your git-commit hooks will (so there are no surprises).
+
+Git-commit formatting is accomplished by the inclusion of `husky` and `lint-staged` configurations in `package.json`. Quite simply, when you make a commit,
+
+`prettier` has been added for formatting along with vscode settings. Basic formatting parameters are provided in `.prettierrc`. However, whenever possible, it's preferable to put formatting settings in `.editorconfig` for consistency across development environments. So if you're using an editor other than VSCode then, for consistency, it's recommended you set up formatting to follow `.prettierrc` and then `.editorconfig`.
+
+`husky` and `lint-staged` configurations have been added to `package.json` so that git commits trigger prettier formatting and linting (with `ng lint`).
