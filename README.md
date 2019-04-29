@@ -14,10 +14,10 @@ To some extent, this project is also designed to document/explain various aspect
 - [x] Make deploy-able to github pages
 - [x] Webpack-bundle analyzer
 - [x] Formatting - Customize prettier, eslint, auto-formatting - Add husky pre-commit formatting
-- [] Angular Material Modules - Implement Modern
+- [x] PWA Basics
+- [x] Angular Material Modules - Implement Modern
   - [] Implement my navigation system
   - [] Implement NG8 Module System - Include lazy-loading example
-- [] PWA Basics
 - [] Google Analytics
 - [] Angular Animations
 - [] Circle CI
