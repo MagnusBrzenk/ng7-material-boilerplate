@@ -25,7 +25,7 @@ import {
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 
-export const materialModules = [
+export const materialModules: any[] = [
   MatButtonModule,
   MatMenuModule,
   MatTabsModule,

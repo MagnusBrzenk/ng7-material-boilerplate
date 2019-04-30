@@ -73,3 +73,7 @@ Git-commit formatting is accomplished by the inclusion of `husky` and `lint-stag
 This is a Progressive Web App ([PWA](https://en.wikipedia.org/wiki/Progressive_web_applications)). In this example, you can see the PWA in action by viewing the [deployed demo site]() on a smart phone and saving it to your home screen so that it behaves like a native app. (On an iPhone, visit the demo site on Safari, press the share icon, and, by scrolling right, you'll find an icon called 'Add to Home Screen'.)
 
 To adjust the PWA behavior, edit files `src/manifest.json` and `src/ngsw-config.json`. In particular, you need to set the `start_url` field in `src/manifest.json`.
+
+## Development Notes
+
+- Spent some time trying different settings for html formatting. Decided to go with `prettier` in the end for consistency and so that husky-formatting might work, despite the fact that it doesnt seem to let you customize the formatting. NOTE: lost some time because I had had '\*.html' in the `.prettierignore` file!

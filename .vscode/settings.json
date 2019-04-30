@@ -1,10 +1,15 @@
 {
-  "editor.formatOnSave": true,
-
   "typescript.tsdk": "node_modules/typescript/lib",
 
+  "files.associations": {
+    "*.html": "html"
+  },
+
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+
+
   "[html]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
 
   "[typescript]": {
@@ -18,9 +23,4 @@
 
   "tslint.configFile": "tslint.json",
   "tslint.enable": true,
-
-  "files.associations": {
-    "*.html": "html"
-  }
-
 }
