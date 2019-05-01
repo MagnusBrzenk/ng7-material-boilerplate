@@ -13,8 +13,6 @@ export class AppComponent implements OnInit {
 
   logo = require('../assets/icons/icon-72x72.png');
 
-  title = 'ng-ivy-boilerplate';
-
   isAuthenticated$: Observable<boolean> | any;
   stickyHeader$: Observable<boolean> | any;
   language$: Observable<string> | any;

@@ -1,0 +1,5 @@
+$app-candy-primary: mat-palette($mat-indigo);
+$app-candy-accent: mat-palette($mat-pink, A200, A100, A400);
+$app-candy-warn: mat-palette($mat-red);
+
+$app-candy-theme: mat-light-theme($app-candy-primary, $app-candy-accent, $app-candy-warn);

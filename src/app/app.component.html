@@ -1,4 +1,4 @@
-<div [class]="'theme-wrapper '">
+<div class="theme-wrapper black-theme" style="background-color: green;">
   <mat-sidenav-container>
     <mat-sidenav #sidenav mode="push">
       <app-sidenav-listings (closeSidenav)="sidenav.close()"></app-sidenav-listings>
@@ -17,7 +17,7 @@
           <span
             routerLink
             class="branding spacer center d-inline d-sm-none"
-            style="background-color:red;"
+            style="background-color:rgba(0,0,0,0);"
           >
             <img [src]="logo" />
           </span>
@@ -43,11 +43,11 @@
         <div *ngIf="true" class="telescope-background-wrapper"></div>
 
         <div class="content">
-          <!-- What goes here?<br>
-                      What goes here?<br>
-                      What goes here?<br>
-                      What goes here?<br>
-                      What goes here?<br> -->
+          What goes here?<br />
+          What goes here?<br />
+          What goes here?<br />
+          What goes here?<br />
+          What goes here?<br />
           <router-outlet #o="outlet"></router-outlet>
         </div>
       </div>
