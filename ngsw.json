@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1556657978686,
+  "timestamp": 1556680853601,
   "index": "https://MagnusBrzenk.github.io/ng7-material-boilerplate/index.html",
   "assetGroups": [
     {
@@ -11,10 +11,10 @@
         "https://MagnusBrzenk.github.io/ng7-material-boilerplate/es2015-polyfills.c5dd28b362270c767b34.js",
         "https://MagnusBrzenk.github.io/ng7-material-boilerplate/favicon.ico",
         "https://MagnusBrzenk.github.io/ng7-material-boilerplate/index.html",
-        "https://MagnusBrzenk.github.io/ng7-material-boilerplate/main.c512964124bff52670fe.js",
+        "https://MagnusBrzenk.github.io/ng7-material-boilerplate/main.84b23a74d9430702a10a.js",
         "https://MagnusBrzenk.github.io/ng7-material-boilerplate/polyfills.8bbb231b43165d65d357.js",
         "https://MagnusBrzenk.github.io/ng7-material-boilerplate/runtime.26209474bfa8dc87a77c.js",
-        "https://MagnusBrzenk.github.io/ng7-material-boilerplate/styles.546b640867a1e0de5e1f.css",
+        "https://MagnusBrzenk.github.io/ng7-material-boilerplate/styles.19601a3807bea251a75b.css",
         "https://MagnusBrzenk.github.io/ng7-material-boilerplate/vendor.e42a595313145bef7953.js"
       ],
       "patterns": []
@@ -50,11 +50,11 @@
     "https://MagnusBrzenk.github.io/ng7-material-boilerplate/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "https://MagnusBrzenk.github.io/ng7-material-boilerplate/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
     "https://MagnusBrzenk.github.io/ng7-material-boilerplate/icon-72x72.18f662ec383f61bfe9db.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
-    "https://MagnusBrzenk.github.io/ng7-material-boilerplate/index.html": "f3cde0c105c2225a39cdda584127e72daac84930",
-    "https://MagnusBrzenk.github.io/ng7-material-boilerplate/main.c512964124bff52670fe.js": "ba4680598ed08dd8bf0ed5ea926d175f5e001054",
+    "https://MagnusBrzenk.github.io/ng7-material-boilerplate/index.html": "002ddd1c1f14ebeceed0494b1e1a29d5d4d658b5",
+    "https://MagnusBrzenk.github.io/ng7-material-boilerplate/main.84b23a74d9430702a10a.js": "18dca08eee8a50a515ad9ad81504a0475325737e",
     "https://MagnusBrzenk.github.io/ng7-material-boilerplate/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
     "https://MagnusBrzenk.github.io/ng7-material-boilerplate/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
-    "https://MagnusBrzenk.github.io/ng7-material-boilerplate/styles.546b640867a1e0de5e1f.css": "890265a278cafad9442e1af66045d9c635267059",
+    "https://MagnusBrzenk.github.io/ng7-material-boilerplate/styles.19601a3807bea251a75b.css": "3560faa9c96d6fc7e8c1defc6126cc07a60ec54d",
     "https://MagnusBrzenk.github.io/ng7-material-boilerplate/vendor.e42a595313145bef7953.js": "0f649302facddbdc319c3b72a4300840159a1f4c"
   },
   "navigationUrls": [
