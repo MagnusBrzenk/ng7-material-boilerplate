@@ -38,9 +38,30 @@ export class NavService {
         },
         {
           label: 'Documentation',
-          link: 'documentation',
+          // link: 'documentation' ,
           isFA: true,
-          icon: 'book'
+          icon: 'book',
+          children: [
+            {
+              label: 'Background',
+              link: 'background',
+              isFA: true,
+              icon: 'landmark'
+            },
+            {
+              label: 'Documentation',
+              link: 'documentation',
+              isFA: true,
+              icon: 'book'
+            },
+            {
+              //
+              label: 'Contact',
+              link: 'contact',
+              icon: 'mail',
+              isExpanded: false
+            }
+          ]
         },
         {
           //

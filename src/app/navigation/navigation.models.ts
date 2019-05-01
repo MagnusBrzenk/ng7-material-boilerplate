@@ -1,26 +1,4 @@
 /**
- * Actions to be passed from material buttons and menu to top-level controller
- */
-export enum NavActions {
-  // BUTTONS IN TOOLBAR
-  'ENTER_BUTTON',
-  'LEAVE_BUTTON',
-  'CLICK_BUTTON',
-  // OVERLAY COVERING BUTTON
-  'ENTER_OVERLAY',
-  'LEAVE_OVERLAY',
-  'CLICK_OVERLAY',
-  // MATERIAL MENUS
-  'ENTER_MENU',
-  'LEAVE_MENU',
-  'CLICK_MENU',
-
-  // USED FOR DEBUGGING iPAD EMULATOR
-  'TOUCHSTART_BUTTON', // Tablet event
-  'TOUCHEND_BUTTON' // Tablet event
-}
-
-/**
  * Shape of items in nested menus
  * NOTE: XOR logic is applied so that a navigation item can EITHER have a link OR act as a node in the menu tree.
  * We dont want them to be BOTH/AND because we dont have mouse hovering on mobile devices

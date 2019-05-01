@@ -77,3 +77,5 @@ To adjust the PWA behavior, edit files `src/manifest.json` and `src/ngsw-config.
 ## Development Notes
 
 - Spent some time trying different settings for html formatting. Decided to go with `prettier` in the end for consistency and so that husky-formatting might work, despite the fact that it doesnt seem to let you customize the formatting. NOTE: lost some time because I had had '\*.html' in the `.prettierignore` file!
+
+- I had experimented with adding the ability to trigger the menu-bar material menus by mouse hover. The code I got to can be found in git SHA `1310db8`. While this implementation worked when originally implemented, the fact that it broke on subsequent versions of ng/material shows how ill-advised it is to try and subvert the behavior of the material library. As such, I attempted to remove all this additional functionality in the branch `005-cleanUpNavHoveringEtc`.

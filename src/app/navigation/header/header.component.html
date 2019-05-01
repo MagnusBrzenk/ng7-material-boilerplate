@@ -1,34 +1,19 @@
 <span *ngFor="let item of navItems; let i = index">
-  <span *ngIf="!!item.children && item.children.length > 0">
-    <div
-      #mainbutton
-      class="main-button-wrapper"
-      style="display: inline-block"
-      (touchstart)="handleInteraction(buttonTrigger, NavActions.TOUCHSTART_BUTTON, $event, i)"
-      (touchend)="handleInteraction(buttonTrigger, NavActions.TOUCHEND_BUTTON, $event, i)"
-      (mouseenter)="handleInteraction(buttonTrigger, NavActions.ENTER_BUTTON, $event, i)"
-      (mouseleave)="handleInteraction(buttonTrigger, NavActions.LEAVE_BUTTON, $event, i)"
-      (click)="handleInteraction(buttonTrigger, NavActions.CLICK_BUTTON, $event, i)"
-    >
+  <span *ngIf="!!item && !!item.children && item?.children?.length > 0">
+    <div #mainbutton class="main-button-wrapper" style="display: inline-block">
       <button
         mat-button
         #buttonTrigger="matMenuTrigger"
         [matMenuTriggerFor]="menu.childMenu"
         [routerLink]="item.link"
-        id="{{ getButtonId(i) }}"
       >
         {{ item.label }}
       </button>
     </div>
-    <app-menu-item
-      #menu
-      [menuItems]="item.children"
-      (emitMenuInteraction)="handleInteraction(buttonTrigger, $event, null, i)"
-      [parentButtonRef]="!!_mainbuttons && _mainbuttons.length >= i && _mainbuttons[i]"
-    ></app-menu-item>
+    <app-menu-item #menu [menuItems]="item.children"></app-menu-item>
   </span>
-  <span *ngIf="!item.children || item.children.length === 0">
-    <button #mainbutton mat-button [routerLink]="item.link" id="{{ getButtonId(i) }}">
+  <span *ngIf="!item.children || item?.children?.length === 0">
+    <button #mainbutton mat-button [routerLink]="item.link">
       {{ item.label }}
     </button>
   </span>
