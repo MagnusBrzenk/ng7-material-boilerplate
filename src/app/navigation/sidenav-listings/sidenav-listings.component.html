@@ -1,4 +1,4 @@
-<mat-nav-list>
+<mat-nav-list *ngIf="!!menuItems">
   <div *ngFor="let menuItem of menuItems">
     <mat-list-item
       class="parent"

@@ -10,6 +10,7 @@ a {
 .menu-button {
   transition: 300ms ease-in-out;
   transform: rotate(0deg);
+  pointer-events: none;
 }
 
 .menu-button.rotated {

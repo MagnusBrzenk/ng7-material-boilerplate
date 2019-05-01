@@ -14,7 +14,7 @@ export class SidenavListingsComponent implements OnInit {
   @Output()
   closeSidenav = new EventEmitter<void>();
 
-  menuItems: INav[] = [];
+  menuItems: INav[] | undefined;
 
   constructor(private navService: NavService) {}
 

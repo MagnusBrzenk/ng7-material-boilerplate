@@ -10,10 +10,13 @@ a {
 .menu-button {
   transition: 300ms ease-in-out;
   transform: rotate(0deg);
+  pointer-events: none;
 }
+
 .menu-button.rotated {
   transform: rotate(180deg);
 }
+
 .submenu {
   max-height: 0px;
   overflow-y: hidden;
@@ -22,6 +25,7 @@ a {
   transform-origin: top;
   padding-left: 30px;
 }
+
 .submenu.expanded {
   max-height: 5000px;
   transform: scaleY(1);

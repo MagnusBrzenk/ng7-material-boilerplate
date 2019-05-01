@@ -23,7 +23,7 @@ export class ListingsComponent implements OnChanges {
   @Input()
   menuItems: INav[] | undefined;
 
-  _menuItems: INav[] = [];
+  _menuItems: INav[] | undefined;
 
   @Output()
   closeSidenav = new EventEmitter<void>();
