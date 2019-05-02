@@ -1,6 +1,6 @@
 # Ng7MaterialBoilerplate
 
-Last updated: April 28th, 2019
+Last updated: May 2nd, 2019
 
 This is an angular boilerplate for ng v7. It is to be my last ng boilerplate before ivy gets built (well).
 
@@ -16,10 +16,9 @@ To some extent, this project is also designed to document/explain various aspect
 - [x] Formatting - Customize prettier, eslint, auto-formatting - Add husky pre-commit formatting
 - [x] PWA Basics
 - [x] Angular Material Modules - Implement Modern
-  - [] Implement my navigation system
-  - [] Implement NG8 Module System - Include lazy-loading example
-- [] Google Analytics
+  - [x] Implement my navigation system
 - [] Angular Animations
+- [] Google Analytics
 - [] Circle CI
 - [] Basic node backend
   - [] Auth route

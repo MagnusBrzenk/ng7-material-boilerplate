@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from '@app/core/local-storage/local-storage.service';
 import { permittedThemes, ILocalStorageState } from '@app/core/local-storage/local-storage.models';
-import { MatSelectChange } from '@angular/material';
+import { MatSelectChange, MatSlideToggleChange } from '@angular/material';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -26,7 +26,7 @@ export class SettingsPageComponent implements OnInit {
     this.localStorageService.setItem('SiteTheme', event.value);
   }
 
-  onAutoNightModeToggle() {
-    //
+  onAutoNightModeToggle(event: MatSlideToggleChange) {
+    // console.log(event);
   }
 }
