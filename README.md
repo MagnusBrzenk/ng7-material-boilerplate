@@ -8,7 +8,7 @@ To some extent, this project is also designed to document/explain various aspect
 
 ## Dev Plan
 
-### Architectural Aspects (Template NG8 Project)
+### Architectural Aspects
 
 - [x] Add git configuration instructions
 - [x] Make deploy-able to github pages
@@ -17,13 +17,13 @@ To some extent, this project is also designed to document/explain various aspect
 - [x] PWA Basics
 - [x] Angular Material Modules - Implement Modern
   - [x] Implement my navigation system
-- [] Angular Animations
-- [] Google Analytics
-- [] Circle CI
-- [] Basic node backend
-  - [] Auth route
-  - [] Auth-ed image upload route
-  - [] Contact-form-email route
+- [ ] Angular Animations
+- [ ] Google Analytics
+- [ ] Circle CI
+- [ ] Basic node backend
+  - [ ] Auth route
+  - [ ] Auth-ed image upload route
+  - [ ] Contact-form-email route
 
 ### Port Specifics
 
