@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { HomeComponent } from './static-pages/home/home.component';
 import { AboutComponent } from './static-pages/about/about.component';
+import { SettingsModule } from './settings/settings.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, AboutComponent],
@@ -18,6 +19,7 @@ import { AboutComponent } from './static-pages/about/about.component';
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
+    SettingsModule,
     SharedModule,
     NavigationModule
   ],

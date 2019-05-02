@@ -1,0 +1,43 @@
+<div class="settings-wrapper" [ngClass]="routeAnimationsElements">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 group" [ngClass]="routeAnimationsElements">
+        <h2>
+          {{ 'THEMES' }}
+        </h2>
+        <div class="icon-form-field">
+          <mat-icon color="accent">
+            <fa-icon icon="paint-brush" color="accent"></fa-icon>
+          </mat-icon>
+          <mat-form-field>
+            <mat-select
+              [placeholder]="'COLOR THEME'"
+              (selectionChange)="onThemeSelect($event)"
+              name="themes"
+            >
+              <mat-option *ngFor="let t of themes" [value]="t">
+                {{ t }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-md-6 group" [ngClass]="routeAnimationsElements">
+        <h2>
+          {{ 'AUTONIGHT MODE' }}
+        </h2>
+        <div class="icon-form-field">
+          <mat-icon color="accent">
+            <fa-icon icon="lightbulb" color="accent"></fa-icon>
+          </mat-icon>
+          <mat-placeholder>
+            {{ 'Auto night mode (from 21:00 to 7:00)' }}
+          </mat-placeholder>
+          <mat-slide-toggle [checked]="true" (change)="onAutoNightModeToggle($event)">
+          </mat-slide-toggle>
+        </div>
+      </div>
+    </div>
+    <div class="row"></div>
+  </div>
+</div>

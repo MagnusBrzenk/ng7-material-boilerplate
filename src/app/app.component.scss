@@ -82,6 +82,7 @@ mat-sidenav-container {
       0% {
         opacity: 0;
       }
+
       100% {
         opacity: 1;
       }
@@ -90,7 +91,7 @@ mat-sidenav-container {
     .content {
       position: relative;
       flex: 1 0 auto;
-      margin-top: 0px;
+      margin-top: 64px;
       height: auto;
       overflow: scroll;
     }
@@ -103,7 +104,7 @@ mat-sidenav-container {
 
   @media (max-width: $toolbar-breakpoint) {
     .content {
-      // margin-top: 56px !important;
+      margin-top: 56px !important;
     }
   }
 }

@@ -19,6 +19,7 @@
       "dom"
     ],
     "paths": {
+      "@src/*": ["src/*"],
       "@app/*": ["src/app/*"],
       "@env/*": ["src/environments/*"]
     },

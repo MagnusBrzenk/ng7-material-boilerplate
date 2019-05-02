@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './static-pages/home/home.component';
 import { AboutComponent } from './static-pages/about/about.component';
+import { SettingsPageComponent } from './settings/settings-page/settings-page.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,11 @@ const routes: Routes = [
   {
     path: 'background',
     component: AboutComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'settings',
+    component: SettingsPageComponent,
     pathMatch: 'full'
   },
   {

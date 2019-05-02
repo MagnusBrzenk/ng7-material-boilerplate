@@ -1,10 +1,9 @@
 /**
  * Shape of items in nested menus
  * NOTE: XOR logic is applied so that a navigation item can EITHER have a link OR act as a node in the menu tree.
- * We dont want them to be BOTH/AND because we dont have mouse hovering on mobile devices
+ * We don't want them to be BOTH/AND because we don't have mouse hovering on mobile devices
  */
 export type INav = XOR<
-  //
   { label: string; icon?: string; isFA?: boolean; isExpanded?: boolean; link: string },
   { label: string; icon?: string; isFA?: boolean; isExpanded?: boolean; children: INav[] }
 >;
