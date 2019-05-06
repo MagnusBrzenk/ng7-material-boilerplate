@@ -29,48 +29,49 @@ export class NavService {
       label: 'About',
       icon: 'info',
       isExpanded: false,
-      children: [
-        {
-          label: 'Background',
-          link: 'background',
-          isFA: true,
-          icon: 'landmark'
-        },
-        {
-          label: 'Documentation',
-          // link: 'documentation' ,
-          isFA: true,
-          icon: 'book',
-          children: [
-            {
-              label: 'Background',
-              link: 'background',
-              isFA: true,
-              icon: 'landmark'
-            },
-            {
-              label: 'Documentation',
-              link: 'documentation',
-              isFA: true,
-              icon: 'book'
-            },
-            {
-              //
-              label: 'Contact',
-              link: 'contact',
-              icon: 'mail',
-              isExpanded: false
-            }
-          ]
-        },
-        {
-          //
-          label: 'Contact',
-          link: 'contact',
-          icon: 'mail',
-          isExpanded: false
-        }
-      ]
+      link: 'about'
+      // children: [
+      //   {
+      //     label: 'Background',
+      //     link: 'background',
+      //     isFA: true,
+      //     icon: 'landmark'
+      //   },
+      //   {
+      //     label: 'Documentation',
+      //     // link: 'documentation' ,
+      //     isFA: true,
+      //     icon: 'book',
+      //     children: [
+      //       {
+      //         label: 'Background',
+      //         link: 'background',
+      //         isFA: true,
+      //         icon: 'landmark'
+      //       },
+      //       {
+      //         label: 'Documentation',
+      //         link: 'documentation',
+      //         isFA: true,
+      //         icon: 'book'
+      //       },
+      //       {
+      //         //
+      //         label: 'Contact',
+      //         link: 'contact',
+      //         icon: 'mail',
+      //         isExpanded: false
+      //       }
+      //     ]
+      //   },
+      //   {
+      //     //
+      //     label: 'Contact',
+      //     link: 'contact',
+      //     icon: 'mail',
+      //     isExpanded: false
+      //   }
+      // ]
     },
     {
       label: 'Data',

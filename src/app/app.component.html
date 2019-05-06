@@ -40,12 +40,18 @@
         </mat-toolbar>
       </div>
       <div class="content-wrapper" [ngStyle]="{}">
-        <div class="content">
-          <!-- What goes here?<br />
+        <div
+          class="content"
+          [@routeAnimations]="o.isActivated && o?.activatedRoute.routeConfig.path"
+        >
           What goes here?<br />
           What goes here?<br />
           What goes here?<br />
-          What goes here?<br /> -->
+          What goes here?<br />
+          What goes here?<br />
+          <span>
+            {{ o?.activatedRoute.routeConfig.path }}
+          </span>
           <router-outlet #o="outlet"></router-outlet>
         </div>
       </div>

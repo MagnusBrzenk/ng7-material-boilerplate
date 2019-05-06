@@ -5,16 +5,20 @@ import { map } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LocalStorageService } from './core/local-storage/local-storage.service';
 import { ILocalStorageState } from './core/local-storage/local-storage.models';
+import { routeAnimations, ROUTE_ANIMATIONS_ELEMENTS } from './core/animations/route.animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [routeAnimations]
 })
 export class AppComponent implements OnInit {
   ///////////////////////////////////////////
 
   logo = require('../assets/icons/icon-72x72.png');
+
+  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 
   isAuthenticated$: Observable<boolean> | any;
   stickyHeader$: Observable<boolean> | any;

@@ -1,7 +1,7 @@
 import { StyleCompiler } from '@angular/compiler';
 
 export interface ILocalStorageState {
-  SiteTheme: TPermittedThemes;
+  SiteTheme: TPermittedTheme;
   PageAnimations: boolean;
   testKey?: string;
 }
@@ -19,4 +19,4 @@ export const permittedThemes = stringLiteralArray([
   'NATURE-THEME',
   'CANDY-THEME'
 ]);
-type TPermittedThemes = typeof permittedThemes[number];
+export type TPermittedTheme = typeof permittedThemes[number];

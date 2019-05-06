@@ -11,7 +11,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'background',
+    path: 'about',
     component: AboutComponent,
     pathMatch: 'full'
   },
