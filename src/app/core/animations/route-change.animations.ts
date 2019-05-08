@@ -30,83 +30,75 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
     // Logic to decide if any animation will happen on state change
     exportedFunction,
     [
-      // Shift new page out of sight
-      query(
-        ':enter',
-        style({
-          opacity: 0,
-          position: 'absolute',
-          transform: 'translateX(-200%)'
-        }),
-        {
-          optional: true
-        }
-      ),
-      // Shift targeted elements within new page out of sight
-      query(
-        ':enter .' + ROUTE_ANIMATIONS_ELEMENTS,
-        style({
-          opacity: 0,
-          transform: 'translateX(-200%)'
-        }),
-        {
-          optional: true
-        }
-      ),
       sequence([
-        // Animate out previous page
+        // First, shrink footer
+        query(
+          '.footer-wrapper',
+          [
+            style({
+              //
+              overflow: 'hidden'
+            }),
+            animate(
+              '0.5s ease-in-out',
+              style({
+                //
+                marginTop: footerHeightPxls
+                // height: 0
+                // minHeight: 0
+              })
+            )
+          ],
+          {
+            optional: true
+          }
+        ),
+
+        ////
+        // Shift new page out of sight
+        query(
+          ':enter, :leave',
+          [
+            style({
+              opacity: 0,
+              position: 'absolute',
+              transform: 'translateX(-200%)'
+            }),
+            animate(1)
+          ],
+          {
+            optional: true
+          }
+        ),
+        // Shift targeted elements within new page out of sight
+        query(
+          ':enter .' + ROUTE_ANIMATIONS_ELEMENTS,
+          style({
+            opacity: 0,
+            transform: 'translateX(-200%)'
+          }),
+          {
+            optional: true
+          }
+        ),
+
+        ////
+
         group([
-          // Shrink footer
-          // query(
-          //   '.footer-wrapper',
-          //   [
-          //     // style({
-          //     //   //
-          //     //   overflow: 'hidden'
-          //     // }),
-          //     animate(
-          //       '0.5s ease-in-out',
-          //       style({
-          //         //
-          //         marginTop: footerHeightPxls
-          //         // height: 0,
-          //         // minHeight: 0
-          //       })
-          //     )
-          //   ],
-          //   {
-          //     optional: true
-          //   }
-          // ),
+          /////////////////
+
+          /////////////////
           query(
             ':leave',
             [
               style({ transform: 'translateY(0%)', opacity: 1 }),
               animate('0.5s ease-in-out', style({ transform: 'translateY(3%)', opacity: 0 })),
-              style({ position: 'fixed' })
+              style({ position: 'relative', display: 'none' })
             ],
             { optional: true }
           )
         ]),
         group([
-          // query(
-          //   '.footer-wrapper',
-          //   [
-          //     // style({
-          //     //   //
-          //     //   overflow: 'hidden'
-          //     // }),
-          //     animate(
-          //       '0.5s ease-in-out',
-          //       style({
-          //         marginTop: 0
-          //       })
-          //     )
-          //   ],
-          //   {
-          //     optional: true
-          //   }
-          // ),
           // Animate new page into view
           query(
             ':enter',
@@ -116,11 +108,41 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
                 transform: 'translate(0%, 3%)',
                 position: 'relative'
               }),
-              animate('0.5s ease-in-out', style({ transform: 'translateY(0%)', opacity: 1 }))
+              animate(
+                '0.5s ease-in-out',
+                style({
+                  //
+                  transform: 'translateY(0%)',
+                  opacity: 1,
+                  position: 'relative'
+                })
+              )
             ],
             { optional: true }
           )
         ]),
+        // Restore footer:
+
+        query(
+          '.footer-wrapper',
+          [
+            // style({
+            //   //
+            //   overflow: 'hidden'
+            // }),
+            animate(
+              '0.5s ease-in-out',
+              style({
+                marginTop: 0
+                // height: footerHeightPxls
+              })
+            )
+          ],
+          {
+            optional: true
+          }
+        ),
+
         // Animate targeted elements within new page into view
         query(
           ':enter .' + ROUTE_ANIMATIONS_ELEMENTS,

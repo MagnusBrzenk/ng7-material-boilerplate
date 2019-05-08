@@ -74,10 +74,12 @@
     display: inline;
     height: auto;
     width: auto;
+    position: absolute;
   }
 
   .footer-wrapper {
     min-height: $footer-height;
     height: $footer-height;
+    overflow: hidden;
   }
 }
