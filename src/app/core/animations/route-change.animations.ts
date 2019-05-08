@@ -18,15 +18,17 @@ const footerHeightPxls = 60; // Make sure this equals value given in SCSS
 // Class name to add to individual elements within pages you want to 'stagger-animate' in
 export const ROUTE_ANIMATIONS_ELEMENTS = 'route-animations-elements';
 
+export function exportedFunction(stateFrom: string, stateTo: string) {
+  if (excludeAnimToPages.includes(stateTo)) return false;
+  if (excludeAnimFromPages.includes(stateFrom)) return false;
+  return !!AnimationsService.isSiteLoaded();
+}
+
 // Define animations triggered on route changes for pages and individual elements
 export const routeChangeTrigger = trigger('routeChangeAnimations', [
   transition(
     // Logic to decide if any animation will happen on state change
-    (stateFrom, stateTo) => {
-      if (excludeAnimToPages.includes(stateTo)) return false;
-      if (excludeAnimFromPages.includes(stateFrom)) return false;
-      return !!AnimationsService.isSiteLoaded();
-    },
+    exportedFunction,
     [
       // Shift new page out of sight
       query(
@@ -97,10 +99,7 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
               animate(
                 '0.5s ease-in-out',
                 style({
-                  //
-                  marginTop: footerHeightPxls
-                  // height: 0,
-                  // minHeight: 0
+                  marginTop: 0
                 })
               )
             ],

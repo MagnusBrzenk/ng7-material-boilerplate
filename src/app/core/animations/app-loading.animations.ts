@@ -3,11 +3,15 @@ import { AnimationsService } from './animations.service';
 
 const animTiming = '1000ms ease-in-out';
 
+export function exportedFunction() {
+  return !AnimationsService.isSiteLoaded();
+}
+
 // Define animations to run once upon site being loaded
 export const appLoadingTrigger = trigger('appLoading', [
   transition(
     ////////////////////////////////////////
-    () => !AnimationsService.isSiteLoaded(),
+    exportedFunction,
     [
       group([
         query(
