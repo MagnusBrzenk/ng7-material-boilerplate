@@ -1,8 +1,7 @@
 import { MatSelectChange, MatSlideToggleChange } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-
-import { ROUTE_ANIMATIONS_ELEMENTS } from '@src/app/core/animations/route.animations';
+// import { ROUTE_ANIMATIONS_ELEMENTS } from '@app/core/animations/route-change.animations';
 import { LocalStorageService } from '@app/core/local-storage/local-storage.service';
 import {
   permittedThemes,
@@ -18,7 +17,7 @@ import {
 export class SettingsPageComponent implements OnInit {
   ////////////////////////////////////////////////////
 
-  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
+  // routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
   themes: TPermittedTheme[] = permittedThemes;
   localStorageState$: Observable<ILocalStorageState>;
 

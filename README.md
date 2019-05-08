@@ -1,10 +1,14 @@
 # Ng7MaterialBoilerplate
 
-Last updated: May 2nd, 2019
+Last updated: May 7th, 2019
 
 This is an angular boilerplate for ng v7. It is to be my last ng boilerplate before ivy gets built (well).
 
 To some extent, this project is also designed to document/explain various aspects of the angular-cli setup (how various commands, configuration pieces work together).
+
+## Acknowledgements
+
+A lot of the patterns used here are borrowed or adapted from the [Angular NGRX Material Starter (ANMS)](https://tomastrajan.github.io/angular-ngrx-material-starter#/about) repo. I am very grateful to all ANMS's contributors for putting together such a rich set of features. I hope this simplified / stripped down / adapted / different approach to a boilerplate can be useful to others too.
 
 ## Dev Plan
 
@@ -17,7 +21,7 @@ To some extent, this project is also designed to document/explain various aspect
 - [x] PWA Basics
 - [x] Angular Material Modules - Implement Modern
   - [x] Implement my navigation system
-- [ ] Angular Animations
+- [x] Angular Animations
 - [ ] Google Analytics
 - [ ] Circle CI
 - [ ] Basic node backend
@@ -25,11 +29,7 @@ To some extent, this project is also designed to document/explain various aspect
   - [ ] Auth-ed image upload route
   - [ ] Contact-form-email route
 
-### Port Specifics
-
-TBD
-
-## Building New Project From Boilerplate
+## Building New Project From This Boilerplate
 
 This work flow assumes you have a github account under `USERNAME` with a ssh public key saved in `settings > SSH and GPG keys` corresponding to an ssh key pair on your local \*nux machine (e.g. `~/.ssh/id_rsa_github` and `~/.ssh/id_rsa_github.pub`), and a local ssh configuration (`~/.ssh/config`) of the form:
 
@@ -53,7 +53,7 @@ Host ...
 7. Make sure you have a global install of [angular-cli-ghpages](https://www.npmjs.com/package/angular-cli-ghpages)
 8. Start making commits and then `git push origin master -u`
 9. When you want to push changes to github-pages, simple run `_deploy_github_pages.sh`
-10. Note to self: when you create a boilerplate using `ng new XXX`, the output path will read `dist/project-name` by default, and I've been changing this to just `dist` so thtat the products are put directly into the the `dist` folder.
+10. Note to self: when you create a boilerplate using `ng new XXX`, the output path will read `dist/project-name` by default, and I've been changing this to just `dist` so that the products are put directly into the the `dist` folder.
 
 ... and you're good to develop! If you prefer to fork then, well, it's pretty asy to adapt from these instructions.
 
@@ -72,6 +72,14 @@ Git-commit formatting is accomplished by the inclusion of `husky` and `lint-stag
 This is a Progressive Web App ([PWA](https://en.wikipedia.org/wiki/Progressive_web_applications)). In this example, you can see the PWA in action by viewing the [deployed demo site]() on a smart phone and saving it to your home screen so that it behaves like a native app. (On an iPhone, visit the demo site on Safari, press the share icon, and, by scrolling right, you'll find an icon called 'Add to Home Screen'.)
 
 To adjust the PWA behavior, edit files `src/manifest.json` and `src/ngsw-config.json`. In particular, you need to set the `start_url` field in `src/manifest.json`.
+
+## Angular Animations
+
+This site uses [Angular Animations](https://angular.io/guide/animations) to control effects upon the site's first load, and for subsequent page changes as detected by the angular router.
+
+The approach taken here is influenced by the approach used in [Angular NGRX Material Starter (ANMS)](https://tomastrajan.github.io/angular-ngrx-material-starter#/about), but is somewhat simpler (IMHO), and is designed to avoid some [niche problems](https://github.com/tomastrajan/angular-ngrx-material-starter/issues/451) experienced with the ANMS approach.
+
+Key to the proper working of animations in this repo is to make sure that the components that are added/removed by the component have absolute positioning. This is achieved by ...
 
 ## Development Notes
 

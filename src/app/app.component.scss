@@ -1,6 +1,7 @@
 @import '../styles-variables';
 
 .theme-wrapper {
+  position: relative;
   height: 100%;
   width: 100%;
 }
@@ -9,16 +10,11 @@ mat-sidenav-container {
   height: 100%;
   width: 100%;
 
-  a {
-    color: grey;
-  }
-
-  .toolbar {
+  .toolbar-wrapper {
     position: fixed;
     width: 100%;
     display: flex;
     z-index: 10;
-    background-color: red;
 
     .nav-button {
       margin: 0 10px 0 0;
@@ -55,11 +51,11 @@ mat-sidenav-container {
       flex: 1 1 auto;
     }
 
-    mat-select {
-      margin: 0 0 0 20px;
-      width: 40px;
-      font-size: 14px;
-    }
+    // mat-select {
+    //   margin: 0 0 0 20px;
+    //   width: 40px;
+    //   font-size: 14px;
+    // }
 
     @media (max-width: map-get($grid-breakpoints, lg)) {
       .nav-button {
@@ -71,40 +67,34 @@ mat-sidenav-container {
 
   .content-wrapper {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: scroll;
-    z-index: 0;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 0px;
 
-    @keyframes FADEIN {
-      0% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 1;
-      }
-    }
-
-    .content {
+    .router-content-wrapper {
       position: relative;
+      // height:calc(100vh - #{$toolbar-height} - #{$footer-height});
+      height: calc(100vh - #{$toolbar-height});
+      width: 100%;
       flex: 1 0 auto;
-      margin-top: 64px;
-      height: auto;
+      margin-top: $toolbar-height !important;
+      // box-sizing: border-box;
       overflow: scroll;
     }
 
     .footer-wrapper {
       z-index: 10;
       height: $footer-height;
+      // display: static;
+      background-color: red;
     }
   }
 
   @media (max-width: $toolbar-breakpoint) {
     .content {
-      margin-top: 56px !important;
+      // margin-top: 56px !important;
     }
   }
 }

@@ -1,11 +1,16 @@
-<div [class]="'theme-wrapper ' + (theme$ | async)" style="background-color: green;">
+<div
+  @appLoading
+  (@appLoading.start)="appLoadingNotifier($event)"
+  (@appLoading.done)="appLoadingNotifier($event)"
+  [class]="'theme-wrapper ' + (theme$ | async)"
+>
   <mat-sidenav-container>
     <mat-sidenav #sidenav mode="push">
       <app-sidenav-listings (closeSidenav)="sidenav.close()"></app-sidenav-listings>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <div class="toolbar">
+      <div class="toolbar-wrapper">
         <mat-toolbar
           color="primary"
           [ngClass]="{ 'main-mat-toolbar': true }"
@@ -14,11 +19,7 @@
           <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
             <fa-icon icon="bars"></fa-icon>
           </button>
-          <span
-            routerLink
-            class="branding spacer center d-inline d-sm-none"
-            style="background-color:rgba(0,0,0,0);"
-          >
+          <span routerLink class="branding spacer center d-inline d-sm-none">
             <img [src]="logo" />
           </span>
           <span routerLink class="branding spacer center d-none d-sm-inline d-md-none">
@@ -39,20 +40,16 @@
           </button>
         </mat-toolbar>
       </div>
-      <div class="content-wrapper" [ngStyle]="{}">
-        <div
-          class="content"
-          [@routeAnimations]="o.isActivated && o?.activatedRoute.routeConfig.path"
-        >
-          What goes here?<br />
-          What goes here?<br />
-          What goes here?<br />
-          What goes here?<br />
-          What goes here?<br />
-          <span>
-            {{ o?.activatedRoute.routeConfig.path }}
-          </span>
-          <router-outlet #o="outlet"></router-outlet>
+      <div
+        [@routeChangeAnimations]="routeChangeState(outlet)"
+        class="content-wrapper"
+        [ngStyle]="{}"
+      >
+        <div class="router-content-wrapper">
+          <router-outlet #outlet="outlet"></router-outlet>
+          <div class="footer-wrapper">
+            <app-footer></app-footer>
+          </div>
         </div>
       </div>
     </mat-sidenav-content>

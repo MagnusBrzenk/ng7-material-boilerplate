@@ -4,24 +4,15 @@ import { Injectable } from '@angular/core';
 export class AnimationsService {
   //////////////////////////////
 
+  static _isSiteLoaded = false;
+
   constructor() {}
 
-  private static routeAnimationType: RouteAnimationType = 'PAGE';
-
-  static isRouteAnimationsType(type: RouteAnimationType) {
-    return AnimationsService.routeAnimationType === type;
+  static isSiteLoaded() {
+    return this._isSiteLoaded;
   }
 
-  updateRouteAnimationType(pageAnimations: boolean, elementsAnimations: boolean) {
-    AnimationsService.routeAnimationType =
-      pageAnimations && elementsAnimations
-        ? 'ALL'
-        : pageAnimations
-        ? 'PAGE'
-        : elementsAnimations
-        ? 'ELEMENTS'
-        : 'NONE';
+  static setSiteLoaded(isSet: boolean) {
+    this._isSiteLoaded = isSet;
   }
 }
-
-export type RouteAnimationType = 'ALL' | 'PAGE' | 'ELEMENTS' | 'NONE';

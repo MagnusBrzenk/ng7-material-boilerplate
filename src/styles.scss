@@ -46,3 +46,38 @@
   @include angular-material-theme($app-candy-theme);
   @include custom-components-theme($app-candy-theme);
 }
+
+//
+.router-content-wrapper {
+  > * {
+    // > *:nth-child(2) {
+    display: block;
+    // position: absolute;
+    // top: 0px;
+    // bottom: 0px;
+    // right: 0px;
+    // left: 0px;
+    // min-height: 90%;
+    // border: 10px solid red;
+    width: 100%;
+    // min-height: calc(100% - );
+    // min-height:calc(100vh - #{$toolbar-height} - #{$footer-height});
+    min-height: calc(100vh - #{$toolbar-height} - #{$footer-height});
+    // min-height:calc(100vh - #{$footer-height});
+    // height:calc(100vh - #{$toolbar-height} - #{$footer-height});
+    // height:calc(100vh - #{$toolbar-height} - #{$footer-height});
+    height: auto;
+    overflow: hidden;
+  }
+
+  router-outlet {
+    display: inline;
+    height: auto;
+    width: auto;
+  }
+
+  .footer-wrapper {
+    min-height: $footer-height;
+    height: $footer-height;
+  }
+}

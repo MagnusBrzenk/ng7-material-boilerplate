@@ -8,7 +8,7 @@ export class LocalStorageService {
 
   readonly initialRequiredState: ILocalStorageState = {
     SiteTheme: 'DEFAULT-THEME',
-    PageAnimations: true
+    isPageAnimated: true
   };
 
   private state$ = new Subject<ILocalStorageState>();

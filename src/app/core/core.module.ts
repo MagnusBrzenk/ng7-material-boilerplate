@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LocalStorageService } from './local-storage/local-storage.service';
-import { AnimationsService } from './animations/animations.service';
+import { AnimationsService } from './XXXanimations/animations.service';
 
 @NgModule({
   declarations: [],

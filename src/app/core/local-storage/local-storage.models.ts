@@ -2,7 +2,7 @@ import { StyleCompiler } from '@angular/compiler';
 
 export interface ILocalStorageState {
   SiteTheme: TPermittedTheme;
-  PageAnimations: boolean;
+  isPageAnimated: boolean;
   testKey?: string;
 }
 
