@@ -57,27 +57,27 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
         // Animate out previous page
         group([
           // Shrink footer
-          query(
-            '.footer-wrapper',
-            [
-              // style({
-              //   //
-              //   overflow: 'hidden'
-              // }),
-              animate(
-                '0.5s ease-in-out',
-                style({
-                  //
-                  marginTop: footerHeightPxls
-                  // height: 0,
-                  // minHeight: 0
-                })
-              )
-            ],
-            {
-              optional: true
-            }
-          ),
+          // query(
+          //   '.footer-wrapper',
+          //   [
+          //     // style({
+          //     //   //
+          //     //   overflow: 'hidden'
+          //     // }),
+          //     animate(
+          //       '0.5s ease-in-out',
+          //       style({
+          //         //
+          //         marginTop: footerHeightPxls
+          //         // height: 0,
+          //         // minHeight: 0
+          //       })
+          //     )
+          //   ],
+          //   {
+          //     optional: true
+          //   }
+          // ),
           query(
             ':leave',
             [
@@ -89,24 +89,24 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
           )
         ]),
         group([
-          query(
-            '.footer-wrapper',
-            [
-              // style({
-              //   //
-              //   overflow: 'hidden'
-              // }),
-              animate(
-                '0.5s ease-in-out',
-                style({
-                  marginTop: 0
-                })
-              )
-            ],
-            {
-              optional: true
-            }
-          ),
+          // query(
+          //   '.footer-wrapper',
+          //   [
+          //     // style({
+          //     //   //
+          //     //   overflow: 'hidden'
+          //     // }),
+          //     animate(
+          //       '0.5s ease-in-out',
+          //       style({
+          //         marginTop: 0
+          //       })
+          //     )
+          //   ],
+          //   {
+          //     optional: true
+          //   }
+          // ),
           // Animate new page into view
           query(
             ':enter',
@@ -127,12 +127,24 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
           [
             stagger('0.15s ease-in-out', [
               style({ transform: 'translate(0%, 3%)', opacity: 0 }),
-              animate('0.15s ease-in-out', style({ transform: 'translateY(0%)', opacity: 1 }))
+              animate(
+                '0.15s ease-in-out',
+                style({ transform: 'translateY(0%)', opacity: 1, position: 'relative' })
+              )
             ])
           ],
           { optional: true }
         )
-      ])
+      ]),
+      query(
+        ':enter',
+        style({
+          position: 'relative'
+        }),
+        {
+          optional: true
+        }
+      )
     ]
   )
 ]);
