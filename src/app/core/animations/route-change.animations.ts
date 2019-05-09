@@ -31,40 +31,10 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
     exportedFunction,
     [
       sequence([
-        // First, shrink footer
-        // query(
-        //   '.footer-wrapper',
-        //   [
-        //     style({
-        //       //
-        //       overflow: 'hidden'
-        //     }),
-        //     animate(
-        //       '10.5s ease-in-out',
-        //       style({
-        //         //
-        //         marginTop: footerHeightPxls
-        //         // height: 0
-        //         // minHeight: 0
-        //       })
-        //     )
-        //   ],
-        //   {
-        //     optional: true
-        //   }
-        // ),
-
-        ////
-        // Shift new page out of sight
+        // Hide new 'entry' content
         query(
           ':enter',
           [
-            style({
-              // opacity: 0,
-              // position: 'fixed',
-              // transform: 'translateX(-200%)'
-            }),
-            animate(1),
             style({
               opacity: 0,
               position: 'fixed',
@@ -75,6 +45,30 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
             optional: true
           }
         ),
+
+        // Shrink footer
+        query(
+          '.footer-wrapperX',
+          [
+            style({
+              //
+            }),
+            animate(
+              '10.5s ease-in-out',
+              style({
+                //
+                marginTop: footerHeightPxls
+                // height: 0
+                // minHeight: 0
+              })
+            )
+          ],
+          {
+            optional: true
+          }
+        ),
+
+        ////
         // Shift targeted elements within new page out of sight
         query(
           ':enter .' + ROUTE_ANIMATIONS_ELEMENTS,
@@ -93,12 +87,21 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
           query(
             ':leave',
             [
-              style({ transform: 'translateY(0%)', opacity: 1 }),
-              animate('1.51s ease-in-out', style({ transform: 'translateY(3%)', opacity: 0 })),
               style({
                 //
-                display: 'none'
-              })
+                transform: 'translateY(0%)',
+                opacity: 1,
+                display: 'block'
+              }),
+              animate(
+                '1.51s ease-in-out',
+                style({
+                  //
+                  transform: 'translateY(3%)',
+                  opacity: 0,
+                  display: 'none'
+                })
+              )
             ],
             { optional: true }
           ),
@@ -131,6 +134,28 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
             { optional: true }
           )
         ]),
+        query(
+          ':leave    ',
+          [
+            style({
+              //
+              // position: 'absolute'
+            })
+          ],
+          { optional: true }
+        ),
+        query(
+          ':enter',
+          [
+            style({
+              //
+              transform: 'translate(0%, 3%)',
+              position: 'relative',
+              opacity: 0.0
+            })
+          ],
+          { optional: true }
+        ),
         group([
           // Animate new page into view
           query(
@@ -138,17 +163,15 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
             [
               style({
                 //
-                transform: 'translate(0%, 3%)',
-                position: 'relative',
-                opacity: 0.5
+                transform: 'translate(0%, 3%)'
+                // opacity: 0.0
               }),
               animate(
-                '0.5s ease-in-out',
+                '1.5s ease-in-out',
                 style({
                   //
                   transform: 'translateY(0%)',
-                  opacity: 1,
-                  position: 'relative'
+                  opacity: 1
                 })
               )
             ],
@@ -159,13 +182,13 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
             [
               style({
                 //
-                opacity: 0.9
+                opacity: 0.0
                 // height: 0,
                 // minHeight: 0,
                 // maxHeight: 0
               }),
               animate(
-                '0.5s ease-in-out',
+                '1.5s ease-in-out',
                 style({
                   //
                   opacity: 1

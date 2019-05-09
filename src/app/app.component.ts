@@ -42,18 +42,6 @@ export function blah() {
             '.footer-wrapper',
             [
               style({
-                backgroundColor: 'blue'
-                // position: 'absolute'
-              })
-            ],
-            {
-              optional: true
-            }
-          ),
-          query(
-            '.footer-wrapper',
-            [
-              style({
                 // backgroundColor: 'blue'
               }),
               animate(
@@ -72,6 +60,19 @@ export function blah() {
               optional: true
             }
           ),
+          query(
+            '.footer-wrapper',
+            [
+              style({
+                backgroundColor: 'blue'
+                // display: 'none'
+              })
+            ],
+            {
+              optional: true
+            }
+          ),
+
           group([
             query(
               '.footer-wrapper',
@@ -96,28 +97,28 @@ export function blah() {
               {
                 optional: true
               }
-            ),
-            query(
-              '.footer-wrapper',
-              [
-                style({
-                  //
-                  // marginTop: 60
-                  // minHeight: 0,
-                  // height: 0,
-                  // position: 'absolute'
-                }),
-                animate(
-                  '.5s ease-in-out',
-                  style({
-                    backgroundColor: 'green'
-                  })
-                )
-              ],
-              {
-                optional: true
-              }
             )
+            // query(
+            //   '.footer-wrapper',
+            //   [
+            //     style({
+            //       //
+            //       // marginTop: 60
+            //       // minHeight: 0,
+            //       // height: 0,
+            //       // position: 'absolute'
+            //     }),
+            //     animate(
+            //       '.5s ease-in-out',
+            //       style({
+            //         backgroundColor: 'green'
+            //       })
+            //     )
+            //   ],
+            //   {
+            //     optional: true
+            //   }
+            // )
           ])
         ])
       ])
