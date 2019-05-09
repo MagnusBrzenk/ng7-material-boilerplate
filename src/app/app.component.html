@@ -41,14 +41,15 @@
         </mat-toolbar>
       </div>
       <div
+        [@testSafari]="isCLicked ? 'start' : 'finish'"
         [@routeChangeAnimations]="routeChangeState(outlet)"
         class="content-wrapper"
         [ngStyle]="{}"
       >
         <div class="router-content-wrapper">
           <router-outlet #outlet="outlet"></router-outlet>
-          <div class="footer-wrapper">
-            <app-footer></app-footer>
+          <div class="footer-wrapper" (click)="testClick()">
+            <!-- <app-footer></app-footer> -->
           </div>
         </div>
       </div>
