@@ -15,6 +15,7 @@ export const appLoadingTrigger = trigger('appLoading', [
     [
       group([
         query(
+          // '.content-wrapper',
           '.content-wrapper',
           [
             style({

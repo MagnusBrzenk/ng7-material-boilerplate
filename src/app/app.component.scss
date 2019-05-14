@@ -1,5 +1,9 @@
 @import '../styles-variables';
 
+:host {
+  overflow: scroll;
+}
+
 .theme-wrapper {
   position: relative;
   height: 100%;
@@ -7,96 +11,103 @@
 }
 
 mat-sidenav-container {
-  height: 100%;
+  position: relative;
+  min-height: 100vh;
   width: 100%;
 
-  .toolbar-wrapper {
-    position: fixed;
-    width: 100%;
+  mat-sidenav-content {
     display: flex;
-    z-index: 10;
+    flex-direction: column;
+    min-height: 100vh; // same height as browser window height
 
-    .nav-button {
-      margin: 0 10px 0 0;
+    .toolbar-wrapper {
+      // position: fixed;
+      width: 100%;
+      display: flex;
+      z-index: 10;
     }
 
-    fa-icon {
-      font-size: 24px;
-    }
-
-    .mat-stroked-button {
-      margin-right: 10px;
-    }
-
-    // Properties to apply to the titles and icons
-    .branding {
-      cursor: pointer;
-      overflow: hidden;
-      padding-top: 4px;
-      text-overflow: ellipsis;
-
-      &.center {
-        text-align: center;
-      }
-
-      img {
-        position: relative;
-        top: -2px;
-        width: 48px;
-        height: 48px;
-      }
-    }
-
-    .spacer {
-      flex: 1 1 auto;
-    }
-
-    // mat-select {
-    //   margin: 0 0 0 20px;
-    //   width: 40px;
-    //   font-size: 14px;
-    // }
-
-    @media (max-width: map-get($grid-breakpoints, lg)) {
-      .nav-button {
-        min-width: 0;
-        padding: 0 10px;
-      }
-    }
-  }
-
-  .content-wrapper {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: 0px;
+    // .content-wrapper {
+    //   flex: 1;
+    //   height: 100%;
+    //   width: 100%;
 
     .router-content-wrapper {
-      position: relative;
-      // height:calc(100vh - #{$toolbar-height} - #{$footer-height});
-      height: calc(100vh - #{$toolbar-height});
-      width: 100%;
       flex: 1 0 auto;
-      margin-top: $toolbar-height !important;
+      // position: relative;
+      // height: calc(100vh - #{$toolbar-height} - #{$footer-height});
+      // height: calc(100vh - #{$toolbar-height});
+      // width: 100%;
+      // flex: 1 0 auto;
+      // margin-top: $toolbar-height !important;
       // box-sizing: border-box;
-      overflow: scroll;
+      // overflow: scroll;
+      // overflow: visible;
+
+      // @media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+      //   height: calc(1024px - #{$toolbar-height} - #{$footer-height});
+      // }
+    }
+
+    main {
+      width: 100%;
+      display: flex;
+      flex: 1; // child will set to an equal size inside the container
+      // flex-direction: column;
+      // Select all direct descendants only of the <main> element
+      // that are not <router-outlet> elements:
+      > *:not(router-outlet) {
+        // > * {
+        flex: 1; // child will set to an equal size inside the container
+        display: block;
+        width: 100%;
+        position: relative;
+        border: red solid 3px;
+      }
+      // router-outlet {
+      //   display: none;
+      // }
     }
 
     .footer-wrapper {
+      position: relative;
       z-index: 10;
       height: $footer-height;
-      // display: static;
-      background-color: red;
+      max-height: $footer-height;
+      width: 100%;
+      opacity: 1;
+      transition: opacity 0.25s ease-in-out;
+      // top: 60px;
+
+      .footer-animator {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+        opacity: 1;
+        // background-color: pink;
+        overflow: hidden;
+        transition: top 0.25s ease-in-out;
+      }
+
+      .footer-animator-hide {
+        top: 60px;
+        transition: top 0.25s ease-in-out;
+      }
     }
   }
 
-  @media (max-width: $toolbar-breakpoint) {
-    .content {
-      // margin-top: 56px !important;
-    }
+  footer {
+    background-color: red;
   }
+
+  @media (max-width: $toolbar-breakpoint) {
+    // .content {
+    //   // margin-top: 56px !important;
+    // }
+  }
+  // }
 }
 
 mat-sidenav {

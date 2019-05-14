@@ -13,7 +13,6 @@ import { AnimationsService } from './animations.service';
 // Add page route here to prevent animations on route changes to/from that page
 const excludeAnimToPages: string[] = [];
 const excludeAnimFromPages: string[] = [];
-const footerHeightPxls = 60; // Make sure this equals value given in SCSS
 
 // Class name to add to individual elements within pages you want to 'stagger-animate' in
 export const ROUTE_ANIMATIONS_ELEMENTS = 'route-animations-elements';
@@ -30,109 +29,102 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
     // Logic to decide if any animation will happen on state change
     exportedFunction,
     [
-      // Shift new page out of sight
-      query(
-        ':enter',
-        style({
-          opacity: 0,
-          position: 'absolute',
-          transform: 'translateX(-200%)'
-        }),
-        {
-          optional: true
-        }
-      ),
-      // Shift targeted elements within new page out of sight
-      query(
-        ':enter .' + ROUTE_ANIMATIONS_ELEMENTS,
-        style({
-          opacity: 0,
-          transform: 'translateX(-200%)'
-        }),
-        {
-          optional: true
-        }
-      ),
       sequence([
-        // Animate out previous page
-        group([
-          // Shrink footer
-          query(
-            '.footer-wrapper',
-            [
-              // style({
-              //   //
-              //   overflow: 'hidden'
-              // }),
-              animate(
-                '0.5s ease-in-out',
-                style({
-                  //
-                  marginTop: footerHeightPxls
-                  // height: 0,
-                  // minHeight: 0
-                })
-              )
-            ],
-            {
-              optional: true
-            }
-          ),
-          query(
-            ':leave',
-            [
-              style({ transform: 'translateY(0%)', opacity: 1 }),
-              animate('0.5s ease-in-out', style({ transform: 'translateY(3%)', opacity: 0 })),
-              style({ position: 'fixed' })
-            ],
-            { optional: true }
-          )
-        ]),
-        group([
-          query(
-            '.footer-wrapper',
-            [
-              // style({
-              //   //
-              //   overflow: 'hidden'
-              // }),
-              animate(
-                '0.5s ease-in-out',
-                style({
-                  marginTop: 0
-                })
-              )
-            ],
-            {
-              optional: true
-            }
-          ),
-          // Animate new page into view
-          query(
-            ':enter',
-            [
+        // Hide new 'entry' content
+        query(
+          ':enter',
+          [
+            style({
+              opacity: 0,
+              transform: 'translateX(-200%)',
+              position: 'fixed'
+              // display: 'inline'
+            })
+          ],
+          { optional: true }
+        ),
+        // Shift targeted elements within new page out of sight
+        query(
+          ':enter .' + ROUTE_ANIMATIONS_ELEMENTS,
+          style({
+            opacity: 0,
+            transform: 'translateX(-200%)'
+          }),
+          { optional: true }
+        ),
+
+        ////
+
+        // group([
+        query(
+          ':leave',
+          [
+            style({
+              //
+              transform: 'translateY(0%)',
+              opacity: 1
+              // display: 'block'
+            }),
+            animate(
+              '0.25s ease-in-out',
               style({
                 //
-                transform: 'translate(0%, 3%)',
-                position: 'relative'
-              }),
-              animate('0.5s ease-in-out', style({ transform: 'translateY(0%)', opacity: 1 }))
-            ],
-            { optional: true }
-          )
-        ]),
+                transform: 'translateY(3%)',
+                opacity: 0
+                // display: 'none'
+              })
+            )
+          ],
+          { optional: true }
+        ),
+        // ]),
+        // group([
+        // Animate new page into view
+        query(
+          ':enter',
+          [
+            style({
+              //
+              transform: 'translate(0%, 3%)'
+              // opacity: 0.0
+            }),
+            animate(
+              '0.25s ease-in-out',
+              style({
+                //
+                transform: 'translateY(0%)',
+                opacity: 1
+              })
+            )
+          ],
+          { optional: true }
+        ),
+        // ]),
+
         // Animate targeted elements within new page into view
         query(
           ':enter .' + ROUTE_ANIMATIONS_ELEMENTS,
           [
             stagger('0.15s ease-in-out', [
               style({ transform: 'translate(0%, 3%)', opacity: 0 }),
-              animate('0.15s ease-in-out', style({ transform: 'translateY(0%)', opacity: 1 }))
+              animate(
+                '0.15s ease-in-out',
+                style({ transform: 'translateY(0%)', opacity: 1, position: 'relative' })
+              )
             ])
           ],
           { optional: true }
         )
       ])
+      // query(
+      //   ':enter',
+      //   style({
+      //     position: 'relative'
+      //   }),
+      //   {
+      //     optional: true
+      //   }
+      // )
     ]
   )
 ]);

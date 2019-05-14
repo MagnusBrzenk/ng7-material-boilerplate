@@ -1,5 +1,6 @@
-<div class="settings-wrapper" [ngClass]="routeAnimationsElements" class="page">
+<div class="settings-wrapper" class="page">
   <div class="container">
+    <h1>SETTINGS</h1>
     <div class="row">
       <div class="col-md-6 group" [ngClass]="routeAnimationsElements">
         <h2>
@@ -11,12 +12,12 @@
           </mat-icon>
           <mat-form-field>
             <mat-select
-              [placeholder]="'COLOR THEME'"
+              [placeholder]="theme$ | async"
               (selectionChange)="onThemeSelect($event)"
               name="themes"
             >
               <mat-option *ngFor="let t of themes" [value]="t">
-                {{ t }}
+                {{ t.replace('-', ' ') }}
               </mat-option>
             </mat-select>
           </mat-form-field>

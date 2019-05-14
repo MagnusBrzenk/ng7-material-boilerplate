@@ -6,17 +6,6 @@
   $warn: map-get($theme, warn);
   $base-background-color: mat-color($primary, darker);
 
-  a {
-    color: mat-color($accent);
-  }
-
-  .main-mat-toolbar {
-    // opacity: 0.2;
-    // background-color: rgba(pink, 0.2);
-    // background-color: rgba(mat-color($primary), 0.5);
-    background-color: mat-color($primary);
-  }
-
   mat-sidenav-container {
     mat-toolbar {
       background: mat-color($primary, lighter);
@@ -34,9 +23,6 @@
     }
 
     .main-mat-toolbar {
-      // opacity: 0.2;
-      // background-color: rgba(pink, 0.2);
-      // background-color: rgba(mat-color($primary), 0.5);
       background-color: mat-color($primary);
     }
 
@@ -53,30 +39,10 @@
       }
     }
 
-    // .background-image-gradient {
-    //   position: absolute;
-    //   // top: 0;
-    //   left: 0;
-    //   right: 0;
-    //   bottom: 0;
-    //   height: 20%;
-    //   background: linear-gradient(to bottom, mat-color($background, background, 0) 0%, mat-color($background, background, 1) 100%);
-    // }
-
-    .footer {
-      color: mat-color($primary, lighter);
-      background-color: mat-color($primary, darker);
-      // background-color: rgba($base-background-color, 0.5);
-
-      .links,
-      .signature {
-        a {
-          color: mat-color($primary, lighter);
-
-          &:hover {
-            color: mat-color($accent);
-          }
-        }
+    .footer-wrapper {
+      .footer-animator {
+        background-color: mat-color($primary, darker);
+        color: mat-color($primary, lighter);
       }
     }
   }
@@ -99,12 +65,5 @@
   .warning-notification-overlay {
     color: mat-color($warning-colors, default-contrast);
     background-color: mat-color($warning-colors);
-  }
-
-  .main-mat-toolbar {
-    // opacity: 0.2;
-    background-color: rgba(pink, 0.2);
-    // background-color: rgba(mat-color($primary), 0.5);
-    // background-color: mat-color($primary);
   }
 }

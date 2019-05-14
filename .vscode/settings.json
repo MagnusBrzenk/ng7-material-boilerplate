@@ -21,6 +21,10 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
   "tslint.configFile": "tslint.json",
   "tslint.enable": true,
 }

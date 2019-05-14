@@ -8,6 +8,7 @@ import {
   ILocalStorageState,
   TPermittedTheme
 } from '@app/core/local-storage/local-storage.models';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-settings-page',
@@ -19,10 +20,16 @@ export class SettingsPageComponent implements OnInit {
 
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
   themes: TPermittedTheme[] = permittedThemes;
+  theme$: Observable<string>;
   localStorageState$: Observable<ILocalStorageState>;
 
   constructor(private localStorageService: LocalStorageService) {
+    // Stream changes to localStorage and pipe to theme$ observable
     this.localStorageState$ = this.localStorageService.getLocalStorageStream();
+    this.theme$ = this.localStorageState$.pipe(
+      map((s: ILocalStorageState) => s.SiteTheme.replace('-', ' '))
+    );
+    setTimeout(() => this.localStorageService.refreshStateStream(), 0);
   }
 
   ngOnInit() {}
@@ -32,6 +39,6 @@ export class SettingsPageComponent implements OnInit {
   }
 
   onAutoNightModeToggle(event: MatSlideToggleChange) {
-    // console.log(event);
+    //
   }
 }
