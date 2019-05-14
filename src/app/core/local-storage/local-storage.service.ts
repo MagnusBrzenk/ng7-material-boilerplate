@@ -15,7 +15,7 @@ export class LocalStorageService {
 
   constructor() {
     this.verifyAndRepairLocalStorageState();
-    this.state$.next(this.getLocalStorageState());
+    this.state$.next({ ...this.getLocalStorageState() });
   }
 
   getLocalStorageState() {

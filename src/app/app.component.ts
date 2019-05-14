@@ -1,11 +1,5 @@
-import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
-import {
-  Component,
-  OnInit,
-  AfterViewInit,
-  AfterContentInit,
-  ViewEncapsulation
-} from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -15,110 +9,19 @@ import { routeChangeTrigger } from './core/animations/route-change.animations';
 import { appLoadingTrigger } from './core/animations/app-loading.animations';
 import { AnimationsService } from './core/animations/animations.service';
 import { IAnimEvent } from './core/animations/animations.models';
-import {
-  trigger,
-  query,
-  style,
-  animate,
-  transition,
-  state,
-  sequence,
-  group
-} from '@angular/animations';
-
-export function blah() {
-  return true;
-}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  // encapsulation: ViewEncapsulation.None,
-
-  animations: [
-    routeChangeTrigger,
-    appLoadingTrigger,
-    trigger('testSafari', [
-      // state('start', style({ backgroundColor: 'blue', marginTop: 60 })),
-      // state('finish', style({ backgroundColor: 'red', marginTop: 0 })),
-      // transition('start <=> finish', animate('500ms ease-in-out')),
-      transition('* <=> *', [
-        //////////////////////////////////
-        sequence([
-          query(
-            '.footer-wrapper',
-            [
-              style({
-                // backgroundColor: 'blue'
-              }),
-              animate(
-                '500ms ease-in-out',
-                style({
-                  //
-                  // marginTop: 60
-                  minHeight: 0,
-                  maxHeight: 0,
-                  height: 0
-                  // position: 'absolute'
-                })
-              )
-            ],
-            {
-              optional: true
-            }
-          ),
-          query(
-            '.footer-wrapper',
-            [
-              style({
-                backgroundColor: 'blue'
-                // display: 'none'
-              })
-            ],
-            {
-              optional: true
-            }
-          ),
-
-          group([
-            query(
-              '.footer-wrapper',
-              [
-                style({
-                  //
-                  // marginTop: 60
-                  // minHeight: 0,
-                  // height: 0,
-                  // position: 'absolute'
-                }),
-                animate(
-                  '.5s ease-in-out',
-                  style({
-                    height: 60,
-                    minHeight: 60,
-                    maxHeight: 60
-                    // marginTop: 0
-                  })
-                )
-              ],
-              {
-                optional: true
-              }
-            )
-          ])
-        ])
-      ])
-    ])
-  ]
+  animations: [routeChangeTrigger, appLoadingTrigger]
 })
 export class AppComponent implements OnInit {
   ///////////////////////////////////////////
 
-  localStorageState$: Observable<ILocalStorageState>;
   theme$: Observable<string>;
+  localStorageState$: Observable<ILocalStorageState>;
 
-  isCLicked = false;
   isAppLoaded = false;
   isFooterHidden = false;
 
@@ -128,6 +31,7 @@ export class AppComponent implements OnInit {
     this.theme$ = this.localStorageState$.pipe(
       map((s: ILocalStorageState) => s.SiteTheme.toLowerCase())
     );
+    // Hacky, but only way found to retrigger observable AFTER component initialized
     setTimeout(() => this.localStorageService.refreshStateStream(), 0);
   }
 
@@ -152,7 +56,7 @@ export class AppComponent implements OnInit {
     // When appLoading animation is finished, declare site loaded
     if (animEvent.phaseName === 'done') {
       AnimationsService.setSiteLoaded(true);
-      this.isAppLoaded = true;
+      this.isAppLoaded = true; // Controls initial footer entrance
     }
   }
 }

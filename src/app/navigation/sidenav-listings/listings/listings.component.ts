@@ -32,7 +32,6 @@ export class ListingsComponent implements OnChanges {
 
   ngOnChanges(simpleChanges: SimpleChanges) {
     this._menuItems = simpleChanges.menuItems.currentValue;
-    // console.log('this._menuItems', this._menuItems);
   }
 
   onClose() {

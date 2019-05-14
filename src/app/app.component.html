@@ -13,20 +13,9 @@
       <div class="toolbar-wrapper">
         <app-header (openSidenav)="sidenav.open()"></app-header>
       </div>
-      <!-- <div
-        [@testSafari]="isCLicked ? 'start' : 'finish'"
-        [@routeChangeAnimations]="routeChangeState(outlet)"
-        (@routeChangeAnimations.start)="routeChangeNotifier($event)"
-        (@routeChangeAnimations.done)="routeChangeNotifier($event)"
-        class="content-wrapper"
-        [ngStyle]="{}"
-      > -->
-      <!-- <div class="router-content-wrapper">
-        <router-outlet #outlet="outlet"></router-outlet>
-      </div> -->
 
       <main
-        class="content-wrapper"
+        class="animated-content-wrapper"
         [@routeChangeAnimations]="routeChangeState(outlet)"
         (@routeChangeAnimations.start)="routeChangeNotifier($event)"
         (@routeChangeAnimations.done)="routeChangeNotifier($event)"
@@ -42,13 +31,6 @@
           <app-footer></app-footer>
         </div>
       </div>
-
-      <!-- <footer>
-        <h2>Sticky Footer !!</h2>
-        <p>... with variable height</p>
-      </footer> -->
-
-      <!-- </div> -->
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

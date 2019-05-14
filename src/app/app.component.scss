@@ -27,46 +27,10 @@ mat-sidenav-container {
       z-index: 10;
     }
 
-    // .content-wrapper {
-    //   flex: 1;
-    //   height: 100%;
-    //   width: 100%;
-
-    .router-content-wrapper {
-      flex: 1 0 auto;
-      // position: relative;
-      // height: calc(100vh - #{$toolbar-height} - #{$footer-height});
-      // height: calc(100vh - #{$toolbar-height});
-      // width: 100%;
-      // flex: 1 0 auto;
-      // margin-top: $toolbar-height !important;
-      // box-sizing: border-box;
-      // overflow: scroll;
-      // overflow: visible;
-
-      // @media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
-      //   height: calc(1024px - #{$toolbar-height} - #{$footer-height});
-      // }
-    }
-
     main {
       width: 100%;
       display: flex;
       flex: 1; // child will set to an equal size inside the container
-      // flex-direction: column;
-      // Select all direct descendants only of the <main> element
-      // that are not <router-outlet> elements:
-      > *:not(router-outlet) {
-        // > * {
-        flex: 1; // child will set to an equal size inside the container
-        display: block;
-        width: 100%;
-        position: relative;
-        border: red solid 3px;
-      }
-      // router-outlet {
-      //   display: none;
-      // }
     }
 
     .footer-wrapper {

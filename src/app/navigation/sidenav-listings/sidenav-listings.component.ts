@@ -20,7 +20,6 @@ export class SidenavListingsComponent implements OnInit {
 
   ngOnInit() {
     this.menuItems = this.navService.getNavLinks();
-    // console.log('>>>', this.menuItems);
   }
 
   onClose() {

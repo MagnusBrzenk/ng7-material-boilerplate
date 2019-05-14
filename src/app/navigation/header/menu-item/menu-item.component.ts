@@ -10,7 +10,7 @@ export class MenuItemComponent {
   @Input()
   menuItems: INav[] | undefined;
 
-  // Seems to be needed to make nested menu loop work:
+  // Seems to be needed to make nested menu loop work
   @ViewChild('childMenu')
   childMenu: any;
 

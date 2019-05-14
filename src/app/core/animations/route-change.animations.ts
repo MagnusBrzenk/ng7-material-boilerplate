@@ -38,12 +38,12 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
               opacity: 0,
               transform: 'translateX(-200%)',
               position: 'fixed'
-              // display: 'inline'
             })
           ],
           { optional: true }
         ),
-        // Shift targeted elements within new page out of sight
+
+        // Hide targeted elements within new page
         query(
           ':enter .' + ROUTE_ANIMATIONS_ELEMENTS,
           style({
@@ -53,45 +53,35 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
           { optional: true }
         ),
 
-        ////
-
-        // group([
+        // Animate old page out of view
         query(
           ':leave',
           [
             style({
-              //
               transform: 'translateY(0%)',
               opacity: 1
-              // display: 'block'
             }),
             animate(
               '0.25s ease-in-out',
               style({
-                //
                 transform: 'translateY(3%)',
                 opacity: 0
-                // display: 'none'
               })
             )
           ],
           { optional: true }
         ),
-        // ]),
-        // group([
+
         // Animate new page into view
         query(
           ':enter',
           [
             style({
-              //
               transform: 'translate(0%, 3%)'
-              // opacity: 0.0
             }),
             animate(
               '0.25s ease-in-out',
               style({
-                //
                 transform: 'translateY(0%)',
                 opacity: 1
               })
@@ -99,7 +89,6 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
           ],
           { optional: true }
         ),
-        // ]),
 
         // Animate targeted elements within new page into view
         query(
@@ -116,15 +105,6 @@ export const routeChangeTrigger = trigger('routeChangeAnimations', [
           { optional: true }
         )
       ])
-      // query(
-      //   ':enter',
-      //   style({
-      //     position: 'relative'
-      //   }),
-      //   {
-      //     optional: true
-      //   }
-      // )
     ]
   )
 ]);
