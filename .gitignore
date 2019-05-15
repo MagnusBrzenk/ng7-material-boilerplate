@@ -43,6 +43,7 @@ testem.log
 .env
 notes.md
 .explorer
+.test_report.txt
 
 # System Files
 .DS_Store

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { permittedThemes, ILocalStorageState } from './local-storage.models';
 import { Subject } from 'rxjs';
 
+type LSKey = keyof ILocalStorageState; // Define type for 'LocalStorageKeys'
+
 @Injectable()
 export class LocalStorageService {
   ////////////////////////////////
@@ -19,8 +21,11 @@ export class LocalStorageService {
   }
 
   getLocalStorageState() {
+    // Use default values for testing
+    if (!localStorage) return { ...this.initialRequiredState };
+
     return Object.keys(localStorage).reduce((accumState: any, key: string) => {
-      accumState[key] = this.getItem(key);
+      accumState[key] = this.getItem(key as LSKey);
       return accumState;
     }, {});
   }
@@ -33,12 +38,15 @@ export class LocalStorageService {
     this.state$.next({ ...this.getLocalStorageState() });
   }
 
-  setItem(key: keyof ILocalStorageState, value: any) {
-    localStorage.setItem(`${key}`, JSON.stringify(value));
+  setItem(key: LSKey, value: any) {
+    localStorage.setItem(key, JSON.stringify(value));
     this.refreshStateStream();
   }
 
-  getItem(key: string) {
+  getItem(key: LSKey) {
+    // Use default values for testing
+    if (!localStorage) return this.initialRequiredState[key];
+
     const item = localStorage.getItem(`${key}`);
     return !!item ? JSON.parse(item) : 'NO_ITEM_FOUND';
   }
@@ -74,7 +82,6 @@ export class LocalStorageService {
     //
     const reqState: ILocalStorageState = this.initialRequiredState;
     const state: any = this.getLocalStorageState();
-    type LSKey = keyof ILocalStorageState; // Define type for 'LocalStorageKeys'
 
     //
     // Verify key-value pairs and types by looping thru keys of requiredInitialState;

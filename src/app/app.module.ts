@@ -11,6 +11,8 @@ import { NavigationModule } from './navigation/navigation.module';
 import { HomeComponent } from './static-pages/home/home.component';
 import { AboutComponent } from './static-pages/about/about.component';
 import { SettingsModule } from './settings/settings.module';
+import { CoreModule } from './core/core.module';
+import { LocalStorageService } from './core/local-storage/local-storage.service';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, AboutComponent],
@@ -21,9 +23,10 @@ import { SettingsModule } from './settings/settings.module';
     BrowserAnimationsModule,
     SettingsModule,
     SharedModule,
-    NavigationModule
+    NavigationModule,
+    CoreModule
   ],
-  providers: [],
+  providers: [LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

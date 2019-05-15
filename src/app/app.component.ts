@@ -19,13 +19,15 @@ import { IAnimEvent } from './core/animations/animations.models';
 export class AppComponent implements OnInit {
   ///////////////////////////////////////////
 
+  title = 'ng7-material-boilerplate';
+
   theme$: Observable<string>;
   localStorageState$: Observable<ILocalStorageState>;
 
   isAppLoaded = false;
   isFooterHidden = false;
 
-  constructor(private route: Router, private localStorageService: LocalStorageService) {
+  constructor(private localStorageService: LocalStorageService) {
     // Stream changes to localStorage and pipe to theme$ observable
     this.localStorageState$ = this.localStorageService.getLocalStorageStream();
     this.theme$ = this.localStorageState$.pipe(

@@ -21,8 +21,20 @@ if [[ $1 == 'stats' ]]; then
   STATS='--stats-json'
 fi
 
-echo ">>> Cleaning out old compilations..."
-rm -rf ./dist
+printf "\n>>> Running tests... "
+ng test --browsers ChromeHeadless --watch=false >.test_report.txt
 
-echo ">>> Building fresh web app..."
-./node_modules/.bin/ng build --prod --aot --vendor-chunk --base-href "https://"$GITHUB_USER_NAME".github.io/"$GITHUB_REPO_NAME"/" -- $STATS
+if [[ $? == 0 ]]; then
+
+  printf "done! All tests passed!\n"
+
+  echo ">>> Cleaning out old compilations..."
+  rm -rf ./dist
+
+  echo ">>> Building fresh web app..."
+  ./node_modules/.bin/ng build --prod --aot --vendor-chunk --base-href "https://"$GITHUB_USER_NAME".github.io/"$GITHUB_REPO_NAME"/" -- $STATS
+
+else
+  printf "done :( Not all tests were succesful! See '.test_report.txt' for details."
+  return 1
+fi

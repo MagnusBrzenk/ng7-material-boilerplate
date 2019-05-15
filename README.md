@@ -1,8 +1,8 @@
 # Ng7MaterialBoilerplate
 
-Last updated: May 7th, 2019
+Last updated: May 15th, 2019
 
-This is an angular boilerplate for ng v7. It is to be my last ng boilerplate before ivy gets built (well).
+This is an angular boilerplate for angular v7.
 
 To some extent, this project is also designed to document/explain various aspects of the angular-cli setup (how various commands, configuration pieces work together).
 
@@ -14,24 +14,33 @@ A lot of the patterns used here are borrowed or adapted from the [Angular NGRX M
 
 ### Architectural Aspects
 
-- [x] Add git configuration instructions
-- [x] Make deploy-able to github pages
-- [x] Webpack-bundle analyzer
-- [x] Formatting - Customize prettier, eslint, auto-formatting - Add husky pre-commit formatting
+- [x] Initial set-up instructions
+- [x] Formatting
+  - [x] Customize prettier, eslint, auto-formatting
+  - [x] Husky pre-commit formatting
 - [x] PWA Basics
 - [x] Angular Material Modules - Implement Modern
   - [x] Implement my navigation system
+  - [x] Implement custom themes
 - [x] Angular Animations
+  - [x] Site-loading animations
+  - [x] Router-transition animations
+  - [x] Staggered-element animations
+- [x] Basic Testing
+- [x] Build Scripts
+  - [x] Prod build
+  - [x] Webpack-bundle analyzer
+  - [x] Deploy to github
 - [ ] Google Analytics
 - [ ] Circle CI
-- [ ] Basic node backend
+- [ ] Basic demo node backend
   - [ ] Auth route
   - [ ] Auth-ed image upload route
   - [ ] Contact-form-email route
 
 ## Building New Project From This Boilerplate
 
-This work flow assumes you have a github account under `USERNAME` with a ssh public key saved in `settings > SSH and GPG keys` corresponding to an ssh key pair on your local \*nux machine (e.g. `~/.ssh/id_rsa_github` and `~/.ssh/id_rsa_github.pub`), and a local ssh configuration (`~/.ssh/config`) of the form:
+This work flow assumes you have a github account under `USERNAME` with a ssh public key saved in `settings > SSH and GPG keys` on github corresponding to an ssh key pair on your local \*nux machine (e.g. `~/.ssh/id_rsa_github` and `~/.ssh/id_rsa_github.pub`), and a local ssh configuration (`~/.ssh/config`) of the form:
 
 ```
 # Personal github account
@@ -49,23 +58,28 @@ Host ...
 3. `git config email=YOUR_EMAIL`
 4. Create repo at github with new name (e.g. `NEW_REPO`)
 5. `git remote add origin git@USERNAME.github.com:USERNAME/NEW_REPO.git` (note the double occurrence of the user name!)
-6. Change `--href` in `_deploy_github_pages.sh` to `https://USERNAME.github.io/NEW_REPO/`
-7. Make sure you have a global install of [angular-cli-ghpages](https://www.npmjs.com/package/angular-cli-ghpages)
+6. Copy `.env-template` to `.env`
+7. Replace the env variables in `.env` with values corresponding to your github account.
 8. Start making commits and then `git push origin master -u`
-9. When you want to push changes to github-pages, simple run `_deploy_github_pages.sh`
-10. Note to self: when you create a boilerplate using `ng new XXX`, the output path will read `dist/project-name` by default, and I've been changing this to just `dist` so that the products are put directly into the the `dist` folder.
+9. When you want to push changes to github-pages, simply run `_deploy_github_pages.sh`
 
-... and you're good to develop! If you prefer to fork then, well, it's pretty asy to adapt from these instructions.
+... and you're good to develop! If you prefer to fork then, well, it's pretty easy to adapt from these instructions.
+
+## Operating The Codebase
+
+I advocate placing all regularly used command sequences in scripts. So, besides looking in the usual `package.json` for angular-CLI commands, you can find useful sequences of commands in bash scripts beginning `_`.
 
 ## Formatting, TSLint, Etc.
 
-This boilerplate aims to make code formatting consistent across multi developers. There are two things to consider: formatting code as you edit, and formatting code when you make git commits. Ideally, of course, you want your editor to format your code the same way that your git-commit hooks will (so there are no surprises).
+This boilerplate aims to make code formatting consistent across multiple developers. There are two things to consider: formatting code as you edit, and formatting code when you make git commits. Ideally, of course, you want your editor to format your code the same way that your git-commit hooks will (so there are no surprises).
 
-Git-commit formatting is accomplished by the inclusion of `husky` and `lint-staged` configurations in `package.json`. Quite simply, when you make a commit,
+Git-commit formatting is accomplished by the inclusion of `husky` and `lint-staged` configurations in `package.json`. Quite simply, when you make a commit, `prettier` will run, adjust your code according to settings in `.prettierrc`, and then complete the commit.
 
-`prettier` has been added for formatting along with vscode settings. Basic formatting parameters are provided in `.prettierrc`. However, whenever possible, it's preferable to put formatting settings in `.editorconfig` for consistency across development environments. So if you're using an editor other than VSCode then, for consistency, it's recommended you set up formatting to follow `.prettierrc` and then `.editorconfig`.
+Whenever possible, it's preferable to put formatting settings in `.editorconfig` for consistency across development environments. So if you're using an editor other than VSCode then, for consistency, it's recommended you set up formatting to follow `.prettierrc` and then `.editorconfig`.
 
-`husky` and `lint-staged` configurations have been added to `package.json` so that git commits trigger prettier formatting and linting (with `ng lint`).
+Modifications have also been made to the original angular-CLI-generated code. In particular, additional `Added TS Strictness` settings have been added to `tsconfig.json`.
+
+If you are editing in VSCode, then I recommend you install [Angular Essentials](https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials) for a robust developer experience, including running analysis of your angular templates. Settings for VSCode are included in `.vscode` designed to unify the editor layout/formatting with the git precommit-hook formatting.
 
 ## PWA Capabilities
 
@@ -79,9 +93,17 @@ This site uses [Angular Animations](https://angular.io/guide/animations) to cont
 
 The approach taken here is influenced by the approach used in [Angular NGRX Material Starter (ANMS)](https://tomastrajan.github.io/angular-ngrx-material-starter#/about), but is somewhat simpler (IMHO), and is designed to avoid some [niche problems](https://github.com/tomastrajan/angular-ngrx-material-starter/issues/451) experienced with the ANMS approach.
 
-Key to the proper working of animations in this repo is to make sure that the components that are added/removed by the component have absolute positioning. This is achieved by ...
+Beware: I ran into a [suspected bug](https://github.com/angular/angular/issues/30361) in angular animations, which forced me to make the animation sequence less complex than I originally intended. This is probably a good thing; I've come to believe that angular animations, while potentially powerful, are best kept short and simple, as is the case in this code base.
 
-## Development Notes
+## Acknowledgements
+
+Besides the angular CLI, parts of this codebase are based upon work by [AMNS](https://tomastrajan.github.io/angular-ngrx-material-starter) and [The Code Campus](https://www.thecodecampus.de/). Many thanks!
+
+## Development Notes (to Self)
+
+- I tried implementing this boilerplate with ng8 and the ivy beta release. Ran into problems. Will try again later when Ivy is established -- probably ng9.
+
+- When you create a boilerplate using `ng new XXX`, the output path will read `dist/project-name` by default, and I've been changing this to just `dist` so that the products are put directly into the the `dist` folder.
 
 - Spent some time trying different settings for html formatting. Decided to go with `prettier` in the end for consistency and so that husky-formatting might work, despite the fact that it doesnt seem to let you customize the formatting. NOTE: lost some time because I had had '\*.html' in the `.prettierignore` file!
 
@@ -91,4 +113,4 @@ Key to the proper working of animations in this repo is to make sure that the co
 
 - The route-transition animations proved a big challenge. I tried to implement a somewhat complex `sequence` of animation steps where the ':leave' page would simultaneously effect-away with the footer (using a `group`). Unfortunately, I wasn't able to get it to work and I concluded that it's because the `sequence` function [doesn't handle `query` calls correctly](https://github.com/angular/angular/issues/30361). I therefore simplified the page :enter-:leave sequence (so it's very similar to ANMS), and I separated the footer animation out into separate CSS animations (the footer starts disappearing when the angular animation begins, and when the angular animation ends, the footer is made to reappear). Not quite what I originally wanted, but the code is much simpler and the difference in timings etc. is hardly noticeable.
 
-- I eventually gaver up on the approach to footers implemented by ANMS and used in stead the SCSS, etc. of [cankattwinkel](https://cankattwinkel.github.io/material-2-sticky-footer-mat-sidenav/demo-app/three). This worked out great and paved the way to a working boilerplate with nice cross-browser layout and animations on OSX and iOS.
+- I eventually gave up on the approach to footers implemented by ANMS and used instead the SCSS, etc. of [cankattwinkel](https://cankattwinkel.github.io/material-2-sticky-footer-mat-sidenav/demo-app/three). This worked out great and paved the way to a working boilerplate with nice cross-browser layout and animations on OSX and iOS.

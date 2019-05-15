@@ -18,7 +18,7 @@ export const appLoadingTrigger = trigger('appLoading', [
           '.animated-content-wrapper',
           [
             style({
-              transform: 'translateY(3%)',
+              transform: 'translateY(5%)',
               opacity: 0
             }),
             animate(animTiming, style({ transform: 'translateY(0%)', opacity: 1 }))
