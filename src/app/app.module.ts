@@ -8,14 +8,15 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { NavigationModule } from './navigation/navigation.module';
-import { HomeComponent } from './static-pages/home/home.component';
-import { AboutComponent } from './static-pages/about/about.component';
 import { SettingsModule } from './settings/settings.module';
 import { CoreModule } from './core/core.module';
 import { LocalStorageService } from './core/local-storage/local-storage.service';
+import { StaticPagesModule } from './static-pages/static-pages.module';
+import { HttpClientModule } from '@angular/common/http';
+import { DynamicPagesModule } from './dynamic-pages/dynamic-pages.module';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AboutComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,9 +25,11 @@ import { LocalStorageService } from './core/local-storage/local-storage.service'
     SettingsModule,
     SharedModule,
     NavigationModule,
-    CoreModule
+    CoreModule,
+    StaticPagesModule,
+    DynamicPagesModule
   ],
-  providers: [LocalStorageService],
+  providers: [LocalStorageService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

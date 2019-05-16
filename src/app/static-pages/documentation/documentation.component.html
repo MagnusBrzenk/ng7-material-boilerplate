@@ -1,0 +1,15 @@
+<div class="documentation-page-wrapper" [ngClass]="routeAnimationsElements">
+  <hr />
+
+  <div>
+    <markdown>{{ docPageContent }}</markdown>
+  </div>
+
+  <hr />
+
+  <div>
+    <markdown [src]="githubReadmeUrl" (load)="onLoad($event)" (error)="onError($event)"> </markdown>
+  </div>
+
+  <hr />
+</div>

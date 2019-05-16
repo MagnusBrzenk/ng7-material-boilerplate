@@ -36,12 +36,11 @@ export class NavService {
             },
             {
               label: 'Documentation',
-              link: 'documentation',
+              link: 'docs',
               isFA: true,
               icon: 'book'
             },
             {
-              //
               label: 'Contact',
               link: 'contact',
               icon: 'mail',
@@ -50,7 +49,6 @@ export class NavService {
           ]
         },
         {
-          //
           label: 'Contact',
           link: 'contact',
           icon: 'mail',
