@@ -1,3 +1,75 @@
-<p>
-  We'll put a contact form here later
-</p>
+<div class="contact-page-wrapper" [ngClass]="routeAnimationsElements">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="main-heading">
+          Contact
+        </h1>
+      </div>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <mat-card class="mat-card-theme-override">
+            <div class="row">
+              <mat-form-field class="col" [ngClass]="routeAnimationsElements">
+                <input matInput placeholder="Name" formControlName="username" />
+                <mat-error *ngIf="form.get('username')?.invalid">
+                  Name is required
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="col" [ngClass]="routeAnimationsElements">
+                <input matInput placeholder="Email" formControlName="email" type="email" />
+                <mat-error *ngIf="form.get('email')?.hasError('required')">
+                  Email is required
+                </mat-error>
+                <mat-error *ngIf="form.get('email')?.hasError('email')">
+                  Email should be valid
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field class="col" [ngClass]="routeAnimationsElements">
+                <textarea
+                  matInput
+                  placeholder="Message"
+                  formControlName="description"
+                  minlength="10"
+                  maxlength="1000"
+                  cdkTextareaAutosize
+                  #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="10"
+                  cdkAutosizeMaxRows="10"
+                ></textarea>
+                <mat-hint align="end">
+                  {{ form.get('description')?.value?.length }} / 1000
+                </mat-hint>
+                <mat-error *ngIf="form.get('description')?.hasError('required')">
+                  Message is required
+                </mat-error>
+                <mat-error *ngIf="form.get('description')?.hasError('minlength')">
+                  Message should be longer than 10 characters
+                </mat-error>
+                <mat-error *ngIf="form.get('description')?.hasError('maxlength')">
+                  Message should be less than 1000 characters
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="row buttons d-flex justify-content-end pad">
+              <button
+                mat-raised-button
+                color="primary"
+                [ngClass]="routeAnimationsElements"
+                [disabled]="!isFormSubmittable()"
+              >
+                Send
+              </button>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

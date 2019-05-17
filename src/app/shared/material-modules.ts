@@ -37,15 +37,21 @@ import {
   MatFormField,
   MatFormFieldModule
 } from '@angular/material';
+import { TextFieldModule } from '@angular/cdk/text-field';
 
 export const materialModules = [
   MatButtonModule,
+  MatCardModule,
+
   MatFormFieldModule,
   MatIconModule,
+  MatInputModule,
   MatListModule,
   MatMenuModule,
   MatSelectModule,
   MatSidenavModule,
   MatSlideToggleModule,
-  MatToolbarModule
+  MatToolbarModule,
+  //
+  TextFieldModule
 ];

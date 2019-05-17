@@ -1,0 +1,36 @@
+@import '../../../styles-variables';
+
+h2 {
+  margin: auto;
+}
+
+.contact-page-wrapper {
+  //Note: #{$footer-height} is special scss syntax = 'the effective height of var $footer-height'
+  // height: calc(100vh - #{$footer-height});
+  width: 100%;
+  position: relative;
+  // padding: 100px 5%;
+  box-sizing: border-box;
+  z-index: 0;
+  text-align: center;
+}
+
+.main-heading {
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+mat-card {
+  margin-bottom: 20px;
+}
+
+mat-checkbox {
+  margin: 10px 0 20px 0;
+}
+mat-slider {
+  width: 100%;
+}
+.buttons {
+  margin: 20px 0px;
+}
