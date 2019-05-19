@@ -25,4 +25,6 @@ echo ">>> Cleaning out old compilations..."
 rm -rf ./dist
 
 echo ">>> Building fresh web app..."
-./node_modules/.bin/ng build --prod --aot --vendor-chunk -- $STATS
+./node_modules/.bin/ng build --prod --aot --vendor-chunk --source-map -- $STATS
+
+echo ">>> Done! Try $(cd dist && http-server) to run bundle locally"

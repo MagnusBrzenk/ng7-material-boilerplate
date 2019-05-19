@@ -48,7 +48,13 @@ export class LocalStorageService {
     if (!localStorage) return this.initialRequiredState[key];
 
     const item = localStorage.getItem(`${key}`);
-    return !!item ? JSON.parse(item) : 'NO_ITEM_FOUND';
+
+    try {
+      return !!item ? JSON.parse(item) : 'NO_ITEM_FOUND';
+    } catch (e) {
+      return 'NO_ITEM_FOUND';
+      console.log(e);
+    }
   }
 
   removeItem(key: string) {
