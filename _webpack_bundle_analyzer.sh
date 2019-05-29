@@ -2,7 +2,7 @@
 
 clear
 
-source _build_prod.sh stats
+source _build_prod.sh '' stats
 
 echo '''
 ===============================

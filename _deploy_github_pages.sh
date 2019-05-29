@@ -1,6 +1,7 @@
 #! /bin/bash
 
-source _build_prod.sh
+# Build pages for github deployment
+source _build_prod.sh github
 
 if [[ $? == 0 ]]; then
 
